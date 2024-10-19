@@ -15,6 +15,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MULTIPLAYERSESSIONS_Menu_generated_h
 
 #define FID_UnrealProjects_MP_Shooter_MenuSystem_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execJoinButtonClicked); \
+	DECLARE_FUNCTION(execHostButtonClicked); \
+	DECLARE_FUNCTION(execOnCreateSession); \
 	DECLARE_FUNCTION(execMenuSetup);
 
 

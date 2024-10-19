@@ -549,7 +549,8 @@
             "d:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\core\\public\\modules\\modulemanager.h",
             "d:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\core\\public\\modules\\boilerplate\\moduleboilerplate.h",
             "d:\\unrealengine\\ue_5.4\\engine\\source\\runtime\\core\\public\\modules\\moduleinterface.h",
-            "d:\\unrealengine\\ue_5.4\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystemmodule.h"
+            "d:\\unrealengine\\ue_5.4\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesubsystemmodule.h",
+            "d:\\unrealengine\\ue_5.4\\engine\\plugins\\online\\onlinesubsystem\\source\\public\\onlinesessionsettings.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
