@@ -82,9 +82,11 @@ struct Z_Construct_UFunction_UMenu_MenuSetup_Statics
 	{
 		int32 NumberOfPublicConnections;
 		FString TypeOfMatch;
+		FString LobbyPath;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "CPP_Default_LobbyPath", "/Game/ThirdPerson/Maps/Lobby" },
 		{ "CPP_Default_NumberOfPublicConnections", "5" },
 		{ "CPP_Default_TypeOfMatch", "FreeForAll" },
 		{ "ModuleRelativePath", "Public/Menu.h" },
@@ -92,14 +94,17 @@ struct Z_Construct_UFunction_UMenu_MenuSetup_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FIntPropertyParams NewProp_NumberOfPublicConnections;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_TypeOfMatch;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_LobbyPath;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMenu_MenuSetup_Statics::NewProp_NumberOfPublicConnections = { "NumberOfPublicConnections", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Menu_eventMenuSetup_Parms, NumberOfPublicConnections), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMenu_MenuSetup_Statics::NewProp_TypeOfMatch = { "TypeOfMatch", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Menu_eventMenuSetup_Parms, TypeOfMatch), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMenu_MenuSetup_Statics::NewProp_LobbyPath = { "LobbyPath", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Menu_eventMenuSetup_Parms, LobbyPath), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenu_MenuSetup_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenu_MenuSetup_Statics::NewProp_NumberOfPublicConnections,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenu_MenuSetup_Statics::NewProp_TypeOfMatch,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenu_MenuSetup_Statics::NewProp_LobbyPath,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UMenu_MenuSetup_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMenu_MenuSetup_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMenu, nullptr, "MenuSetup", nullptr, nullptr, Z_Construct_UFunction_UMenu_MenuSetup_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenu_MenuSetup_Statics::PropPointers), sizeof(Z_Construct_UFunction_UMenu_MenuSetup_Statics::Menu_eventMenuSetup_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMenu_MenuSetup_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMenu_MenuSetup_Statics::Function_MetaDataParams) };
@@ -117,9 +122,10 @@ DEFINE_FUNCTION(UMenu::execMenuSetup)
 {
 	P_GET_PROPERTY(FIntProperty,Z_Param_NumberOfPublicConnections);
 	P_GET_PROPERTY(FStrProperty,Z_Param_TypeOfMatch);
+	P_GET_PROPERTY(FStrProperty,Z_Param_LobbyPath);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->MenuSetup(Z_Param_NumberOfPublicConnections,Z_Param_TypeOfMatch);
+	P_THIS->MenuSetup(Z_Param_NumberOfPublicConnections,Z_Param_TypeOfMatch,Z_Param_LobbyPath);
 	P_NATIVE_END;
 }
 // End Class UMenu Function MenuSetup
@@ -318,7 +324,7 @@ struct Z_Construct_UClass_UMenu_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMenu_HostButtonClicked, "HostButtonClicked" }, // 128811646
 		{ &Z_Construct_UFunction_UMenu_JoinButtonClicked, "JoinButtonClicked" }, // 3398739101
-		{ &Z_Construct_UFunction_UMenu_MenuSetup, "MenuSetup" }, // 1786346661
+		{ &Z_Construct_UFunction_UMenu_MenuSetup, "MenuSetup" }, // 781010736
 		{ &Z_Construct_UFunction_UMenu_OnCreateSession, "OnCreateSession" }, // 26211409
 		{ &Z_Construct_UFunction_UMenu_OnDestroySession, "OnDestroySession" }, // 122917252
 		{ &Z_Construct_UFunction_UMenu_OnStartSession, "OnStartSession" }, // 1266615269
@@ -377,10 +383,10 @@ UMenu::~UMenu() {}
 struct Z_CompiledInDeferFile_FID_UnrealProjects_MP_Shooter_MenuSystem_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMenu, UMenu::StaticClass, TEXT("UMenu"), &Z_Registration_Info_UClass_UMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMenu), 4267605985U) },
+		{ Z_Construct_UClass_UMenu, UMenu::StaticClass, TEXT("UMenu"), &Z_Registration_Info_UClass_UMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMenu), 309032200U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects_MP_Shooter_MenuSystem_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_3150086436(TEXT("/Script/MultiplayerSessions"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UnrealProjects_MP_Shooter_MenuSystem_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_1808470708(TEXT("/Script/MultiplayerSessions"),
 	Z_CompiledInDeferFile_FID_UnrealProjects_MP_Shooter_MenuSystem_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UnrealProjects_MP_Shooter_MenuSystem_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
